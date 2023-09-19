@@ -1,41 +1,43 @@
-function validarFormulario() {
-    // Validar nombre
-    var nombre = document.querySelector("input[name='nombre']").value;
-    if (nombre === "") {
-      alert("El nombre es obligatorio.");
-      return false;
-    }
-  
-    // Validar correo electrónico
-    var correo = document.querySelector("input[name='correo']").value;
-    var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!regex.test(correo)) {
-      alert("El correo electrónico no es válido.");
-      return false;
-    }
-  
-    // Validar cantidad
-    var cantidad = document.querySelector("input[name='cantidad']").value;
-    if (cantidad <= 0) {
-      alert("La cantidad debe ser mayor que cero.");
-      return false;
-    }
-    
-    return function(){
-        return cantidad;
+console.log("Simulador de calificaciones");
+
+//Saludo mediante alert
+alert("Hola bienvenido al simulador de alta de calificaciones")
+
+//Se declara el nombre del estudiante
+let nombreEstudiante = prompt("Ingresa el nombre del estudiante")
+
+
+
+//Se declaran las variables
+let calificacionMate = parseInt(prompt("Ingresa la calificacion de matematicas"));
+let calificacionEsp = parseInt(prompt("Ingresa la calificacion de Español"));
+let calificacionIng = parseInt(prompt("Ingresa la calificacion de Ingles"));
+let calificacionGeo = parseInt(prompt("Ingresa la calificacion de Geografia"));
+
+
+var sumaCalifas = calificacionEsp + calificacionMate + calificacionIng + calificacionGeo;
+console.log(sumaCalifas);
+
+var promedio = sumaCalifas / 4;
+
+console.log(promedio)
+
+function acreditaSemestre (){
+    if (promedio <= 5){
+        alert("No acredita, el promedio es de: " + promedio);
+    }else{
+        alert("Acredita la el semestre, el promedio es de: " + promedio);
     };
+};
 
-    return true;
+
+document.write("El estdudiante "+ nombreEstudiante + ", tiene un promedio de: " + promedio);
+
+while(promedio >= 9){
+  alert("Es un estudiantede excelentcia");
+  if(promedio < 9){
+    break;
   }
-  
-  // Evento onclick del botón "Comprar"
-  document.querySelector("input[type='submit']").onclick = function() {
+  break;
+}
 
-    var functionAnon = validarFormulario();
-
-    if (functionAnon()) {
-      // Realizar la compra de tickets
-      alert("Se han comprado " + functionAnon() + "  tickets.");
-      console.log("Se han comprado " + functionAnon() + "  ticketes.");
-    }
-  };
