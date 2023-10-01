@@ -69,18 +69,19 @@ const califasDeLeo = [
   }
 ]
 
-const calisLeo = califasDeLeo;
+let nuevaCalifa = { 
+  calificacionEti1 : 10 
+}
 
-console.table(calisLeo)
+califasDeLeo.push(nuevaCalifa)
 
-const sumaCalisLeo = calisLeo.calificacionMate1 + calisLeo.calificacionEsp1 + calisLeo.calificacionIng1 + calisLeo.calificacionGeo1 + calisLeo.calificacionHist1 + calisLeo.calificacionCien1 + calisLeo.calificacionEco1;
+califasDeLeo.forEach((califa) => {
+  console.log(califa)
+})
 
-const numeroCalisLeo = Number(sumaCalisLeo)
+let showNameLeo = califasDeLeo.find(calis => calis.nombre === "Leonel");
 
-console.log(numeroCalisLeo)
 
-const promedioLeo = sumaCalisLeo / califasDeLeo.length;
 
-console.log("El promedio de " + califasDeLeo.nombre + " es de :" + promedioLeo)
-
+console.log(showNameLeo)
 
