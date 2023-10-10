@@ -1,0 +1,16 @@
+#Titulo Simulador de calificaciones
+
+#Descripcion del proyecto
+Es un pequeño simulador de calificaciones en desarrollo con la finalidad de desarrollar un simulador mas complejo
+
+#Deseo en version mas desarrollada poder tener un simulador que sea un dashboard de simulador de calificaciones de una institucion educativa
+
+#Metodos utilizados
+-Alerts.
+-variables con let
+-funciones con consolelog
+-bucle while
+-algunos ifs y elses
+-arreglos
+-push para agregar a los arrglos
+-promts para entrafas de datos con parse int y transformalos a caracter numerico

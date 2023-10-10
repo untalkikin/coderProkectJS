@@ -18,20 +18,19 @@ let calificacionGeo = parseInt(prompt("Ingresa la calificacion de Geografia"));
 var sumaCalifas = calificacionEsp + calificacionMate + calificacionIng + calificacionGeo;
 console.log(sumaCalifas);
 
-var promedio = sumaCalifas / 4;
+let promedio = sumaCalifas / 4;
 
 console.log(promedio)
 
-function acreditaSemestre (){
-    if (promedio <= 5){
-        alert("No acredita, el promedio es de: " + promedio);
-    }else{
-        alert("Acredita la el semestre, el promedio es de: " + promedio);
-    };
-};
+function acreditaSemestre() {
+  if (promedio <= 5) {
+    return "No acredita, el promedio es de: " + promedio;
+  } else {
+    return "Acredita el semestre, el promedio es de: " + promedio;
+  }
+}
 
-
-document.write("El estdudiante "+ nombreEstudiante + ", tiene un promedio de: " + promedio);
+console.log(acreditaSemestre());
 
 while(promedio >= 9){
   alert("Es un estudiantede excelentcia");
@@ -47,13 +46,13 @@ const listaCalifas ={
   calificacionEco:10
 }
 
-console.log(nombreEstudiante + " obtuvo un " + calificacionMate + " en la asignatura de Matematicas")
-console.log(nombreEstudiante + " obtuvo un " + calificacionEsp + " en la asigmatura de Español")
-console.log(nombreEstudiante + " obtuvo un " + calificacionIng + " en la asignatura de Ingles")
-console.log(nombreEstudiante + " obtuvo un " + calificacionGeo + " en la asignatura de Geografia")
-console.log(nombreEstudiante + " obtuvo un " + listaCalifas.calificacionHist + " en la asignatura de Historia")
-console.log(nombreEstudiante + " obtuvo un " + listaCalifas.calificacionCien + " en la asignatura de Ciencias")
-console.log(nombreEstudiante + " obtuvo un " + listaCalifas.calificacionEco + " en la Asigntarua de Economia" )
+console.log(`${nombreEstudiante} obtuvo un ${calificacionMate} en Matematicas`);
+console.log(`${nombreEstudiante} obtuvo un ${calificacionEsp} en Español`);
+console.log(`${nombreEstudiante} obtuvo un ${calificacionIng} en Ingles`);
+console.log(`${nombreEstudiante} obtuvo un ${calificacionGeo} en Geografia`);
+console.log(`${nombreEstudiante} obtuvo un ${listaCalifas.calificacionHist} en Historia`);
+console.log(`${nombreEstudiante} obtuvo un ${listaCalifas.calificacionCien} en Ciencias`);
+console.log(`${nombreEstudiante} obtuvo un ${listaCalifas.calificacionEco} en Economia`);
 
 //Arreglos
 const califasDeLeo = [
@@ -79,9 +78,14 @@ califasDeLeo.forEach((califa) => {
   console.log(califa)
 })
 
-let showNameLeo = califasDeLeo.find(calis => calis.nombre === "Leonel");
+const nombreBuscado = prompt("Ingrese el nombre del estudiante que desea buscar:");
 
+let estudianteEncontrado = califasDeLeo.find(estudiante => estudiante.nombre === nombreBuscado);
 
-
-console.log(showNameLeo)
+if (estudianteEncontrado) {
+  console.log("Estudiante encontrado:");
+  console.log(estudianteEncontrado);
+} else {
+  console.log("No se encontró ningún estudiante con ese nombre.");
+}
 
