@@ -36,11 +36,7 @@ header {
 ul {
     list-style: none;
 }
-#hero {
-    background-image:url(../img/hero.jpg);
-    height: 350px;
-    background-size: cover;
-}
+
 #encabezado {
     margin: 30px 0;
 }
@@ -91,7 +87,7 @@ ul {
     display: block;
     text-indent: -9999px;
     width: 50px;
-    background-image: url(../img/lupa.png);
+
     background-position: right center;
     background-repeat: no-repeat;
     border:none;
@@ -124,15 +120,7 @@ ul {
         margin-bottom:0;
     }
 }
-.icono1 {
-    background-image: url(../img/icono1.png);
-}
-.icono2 {
-    background-image: url(../img/icono2.png);
-}
-.icono3 {
-    background-image: url(../img/icono3.png);
-}
+
 
 #lista-cursos .row {
     margin-bottom:20px;
