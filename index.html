@@ -11,22 +11,25 @@
 </head>
 
 <body>
-
-    <div id="contenido">
-        <div class="container">
-            <h1>Simulador</h1>
-            <img class="row" src="ticket.png" />
-            <div class="row">
-                <div class="six columns">
-                    <h2>Calificaciones</h2>
-                    <form id="formulario">
-                        <label for="estudiante">
-                            Nombre del estudiante:
-                            <input id="estudiante" class="u-full-width">
-                        </label>
-                        <label for="materia">
-                            Asignatura
-                            <select id="materia" class="u-full-width">
+    <h1 class="text-center my-5 titulo">Simulador</h1>
+    <div id="contenido" class="container">
+        <div id="contenido" class="row">
+            <div class="col-md-6">
+                <img class="col-md-6" src="ticket.png" />
+                <form id="formulario">
+                    <legend class="mb-4">Calificaciones del estudiante</legend>
+                    <div class="form-group row">
+                        <label for="estudiante" class="col-sm-4 col-lg-4 col-form-label">Nombre del
+                            estudiante:</label>
+                        <div class="col-sm-8 col-lg-8">
+                            <input type="text" id="estudiante" name="estudiante" class="form-control"
+                                placeholder="Nombre del estudiante">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="materia" class="col-sm-4 col-lg-4 col-form-label">Materia:</label>
+                        <div class="col-sm-8 col-lg-8">
+                            <select id="materia" type="select" class="form-control">
                                 <option>Elige Materia</option>
                                 <option id="materia" value="Ingles">Ingles</option>
                                 <option id="materia" value="Español">Español</option>
@@ -37,24 +40,28 @@
                                 <option id="materia" value="Historia">Historia</option>
                                 <option id="materia" value="Ciencias">Ciencias</option>
                             </select>
-                        </label>    
-                        
-                        <label for="calificacion">
-                            Calificacion
-                            <input id="calificacion" class="u-full-width">
-                        </label>
-                        
-                        <input type="submit" class="button u-full-width button-primary" value="Agregar">
-                    </form>
-                </div>
-                <div class="six columns">
-                    <h2>Mis Calificaciones</h2>
-                    <div id="lista-calis" class="list-group"></div>
-                </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="calificacion" class="col-sm-4 col-lg-4 col-form-label">Calificacion:</label>
+                        <div class="col-sm-8 col-lg-8">
+                            <input type="text" id="calificacion" name="calificacion" class="form-control"
+                                placeholder="Calificacion de la Materia">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success w-100 d-block">Agregar Calificacion</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-4">Mis calificaciones</h2>
+                <ul id="lista-calis" class="list-group lista-calis"></ul>
             </div>
 
         </div>
-    </div> <!--#contenido-->
+    </div>
+
 
     <script src="main.js"></script>
 </body>

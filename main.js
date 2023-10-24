@@ -1,7 +1,7 @@
 console.log("Simulador de calificaciones");
 
 //Saludo mediante alert
-alert("Hola bienvenido al simulador de alta de calificaciones");
+//alert("Hola bienvenido al simulador de alta de calificaciones");
 
 //Variables
 
@@ -73,7 +73,7 @@ function crearHTML() {
 
   if (calificaciones.length > 0) {
     calificaciones.forEach(calificacion => {
-      const {estudiante, materia, califiacion} = calificaciones;
+      const { estudiante, materia, califiacion} = calificaciones;
 
       const divCalis = document.createElement('div');
       divCalis.classList.add('calificacion', 'p-3');
@@ -92,7 +92,7 @@ function crearHTML() {
 
       // Agregar un botón de eliminar...
       const btnEliminar = document.createElement('button');
-      btnEliminar.onclick = () => borrarCalis(id); // añade la opción de eliminar
+      btnEliminar.onclick = () => borrarCalis(calificacion.id); // añade la opción de eliminar
       btnEliminar.classList.add('btn', 'btn-danger', 'mr-2');
       btnEliminar.innerHTML = 'Eliminar <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>'      
 
@@ -113,7 +113,7 @@ function crearHTML() {
 function borrarCalis(e) {
   e.preventDefault();
 
-  const id = e.target.parentElement.dataset.calificionId;
+  const id = e.target.parentElement.dataset.calificacionId;
   calificaciones = calificaciones.filter((calificacion) => calificacion.id != id);
   crearHTML();
 }
