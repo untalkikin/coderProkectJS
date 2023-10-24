@@ -72,28 +72,38 @@ function crearHTML() {
   limpiarHTML();
 
   if (calificaciones.length > 0) {
-    calificaciones.forEach((califiaciones) => {
-      //Crear boton de eliminar calificaciones
-      const botonBorrar = document.createElement("a");
-      botonBorrar.classList = "borrar-cal";
-      botonBorrar.innerHTML = "X";
+    calificaciones.forEach(calificacion => {
+      const {estudiante, materia, califiacion} = calificaciones;
 
-      //Crear elemento y contenido a la lista
-      const li = document.createElement("li");
+      const divCalis = document.createElement('div');
+      divCalis.classList.add('calificacion', 'p-3');
+      divCalis.dataset.calificacionId = calificacion.id;
 
-      //Añade el texto
-      li.innerText = estudiante.estudiante;
-      li.innerText = materia.materia;
-      li.innerText = calificacion.calificacion;
+      //Scripting de los elementos
+      const estudianteParrafo = document.createElement('h2');
+      estudianteParrafo.classList.add('card-title', 'font-weight-bolder');
+      estudianteParrafo.innerHTML = `${estudiante}`;
 
-      //Añader el boton de borrar  a la calificacion
-      li.appendChild(botonBorrar);
+      const materiaParrafo = document.createElement('p');
+      materiaParrafo.innerHTML = `<span class="font-weight-bolder">Asignatura: </span> ${materia}`;
 
-      //Añade atributo unico
-      li.dataset.calificacionesId = calificaciones.id;
+      const califiacionParrafo = document.createElement('p');
+      califiacionParrafo.innerHTML = `<span class="font-weight-bolder">Calificacion: </span> ${califiacion}`;
 
-      //Añade la calificacion a la lista
-      listarCalifas.appendChild(li);
+      // Agregar un botón de eliminar...
+      const btnEliminar = document.createElement('button');
+      btnEliminar.onclick = () => borrarCalis(id); // añade la opción de eliminar
+      btnEliminar.classList.add('btn', 'btn-danger', 'mr-2');
+      btnEliminar.innerHTML = 'Eliminar <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>'      
+
+
+      //Agregar HTML
+      divCalis.appendChild(estudianteParrafo);
+      divCalis.appendChild(materiaParrafo);
+      divCalis.appendChild(califiacionParrafo);
+      divCalis.appendChild(btnEliminar);
+
+      listarCalifas.appendChild(divCalis);
     });
   }
   sincronizarStorage();
@@ -103,8 +113,8 @@ function crearHTML() {
 function borrarCalis(e) {
   e.preventDefault();
 
-  const id = e.target.parentElement.dataset.calisId;
-  calificaciones = calificaciones.filter((calificaciones) => calificaciones.id != id);
+  const id = e.target.parentElement.dataset.calificionId;
+  calificaciones = calificaciones.filter((calificacion) => calificacion.id != id);
   crearHTML();
 }
   //Agregar Calificaciones a localStorage

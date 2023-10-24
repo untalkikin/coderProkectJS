@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Simulador de calificaciones</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/skeleton.css">
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -19,32 +18,38 @@
             <img class="row" src="ticket.png" />
             <div class="row">
                 <div class="six columns">
-                    <label>Calificaciones</label>
+                    <h2>Calificaciones</h2>
                     <form id="formulario">
-                        <input id="estudiante" class="u-full-width">
-                            <label for="estudiante">Nombre del estudiante:</label>
-                        </input>
-                        <label for="materia">Asignatura</label>
-                        <select id="materia" class="u-full-width">
-                            <option>Elige Materia</option>
-                            <option id="materia" value="Ingles">Ingles</option>
-                            <option id="materia" value="Español">Español</option>
-                            <option id="materia" value="Matematicas">Matematicas</option>
-                            <option id="materia" value="Geografia">Geografia</option>
-                            <option id="materia" value="Civica y etica">Civica y Etica</option>
-                            <option id="materia" value="Informatica">Informatica</option>
-                            <option id="materia" value="Historia">Historia</option>
-                            <option id="materia" value="Ciencias">Ciencias</option>
-                        </select>
-                        <input id="calificacion" class="u-full-width">
-                            <label for="calificacion">Calificacion</label>
-                        </input>
+                        <label for="estudiante">
+                            Nombre del estudiante:
+                            <input id="estudiante" class="u-full-width">
+                        </label>
+                        <label for="materia">
+                            Asignatura
+                            <select id="materia" class="u-full-width">
+                                <option>Elige Materia</option>
+                                <option id="materia" value="Ingles">Ingles</option>
+                                <option id="materia" value="Español">Español</option>
+                                <option id="materia" value="Matematicas">Matematicas</option>
+                                <option id="materia" value="Geografia">Geografia</option>
+                                <option id="materia" value="Civica y etica">Civica y Etica</option>
+                                <option id="materia" value="Informatica">Informatica</option>
+                                <option id="materia" value="Historia">Historia</option>
+                                <option id="materia" value="Ciencias">Ciencias</option>
+                            </select>
+                        </label>    
+                        
+                        <label for="calificacion">
+                            Calificacion
+                            <input id="calificacion" class="u-full-width">
+                        </label>
+                        
                         <input type="submit" class="button u-full-width button-primary" value="Agregar">
                     </form>
                 </div>
                 <div class="six columns">
                     <h2>Mis Calificaciones</h2>
-                    <div id="lista-calis"></div>
+                    <div id="lista-calis" class="list-group"></div>
                 </div>
             </div>
 
