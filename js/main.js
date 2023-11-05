@@ -23,6 +23,34 @@ function validateForm() {
   return true;
 }
 
+function maestro() {
+  // URL de la API
+  const url = "https://rickandmortyapi.com/api/character";
+
+  // Realizamos la petición HTTP
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      // Convertimos los datos en un array
+      const characters = data.results;
+
+      // Creamos un select
+      const select = document.querySelector("select");
+
+      // Recorremos el array de personajes
+      characters.forEach((character) => {
+        // Añadimos una opción al select
+        const option = document.createElement("option");
+        option.value = character.name;
+        option.textContent = character.name;
+        select.appendChild(option);
+      });
+    });
+    return characters;
+}
+
+// Llamamos a la función
+maestro();
 //Mostrar datos desde localStorage
 function showData() {
   let calificacionesList;
@@ -38,6 +66,7 @@ function showData() {
     html += "<td>" + element.nombre + "</td>";
     html += "<td>" + element.materia + "</td>";
     html += "<td>" + element.score + "</td>";
+    html += "<td>" + element.characters + "</td>" 
     html +=
       '<td><button onclick="deleteData(' +
       index +
@@ -53,36 +82,14 @@ document.onload = showData();
 
 //Agregar los datos al localStorage
 
-function addData() {
-//   //Funcion para consultar API
-//   function consultarseAPI() {
-//     //consultar la api e imprimir el resutado
-//     //leer la url
-//     let url = "https://rickandmortyapi.com/api/character?q=${name}";
+function addData(characters) {
 
-//     //Query con FETCH
-//     fetch(url)
-//       .then((respuesta) => {
-//         return respuesta.json();
-//       })
-//       .then((datos) => {
-//         console.log(datos);
-//         if (datos.cod === 404) {
-//           alert("Personaje no encontrado");
-//         } else {
-//             nombre(datos)
-//         }
-//       })
-//       .catch(error =>{
-//         console.log(error);
-//     });
-//   }
- 
   //Si el formulario es valido
   if (validateForm() == true) {
-    const nombre = document.getElementById("nombre").value;
+    let nombre = document.getElementById("nombre").value;
     let materia = document.getElementById("materia").value;
     let score = document.getElementById("score").value;
+    let characters = document.getElementById("characters").value;
 
     let calificacionesList;
     if (localStorage.getItem("calificacionesList") == null) {
@@ -97,6 +104,7 @@ function addData() {
       nombre: nombre,
       materia: materia,
       score: score,
+      characters: characters,
     });
 
     localStorage.setItem(
@@ -107,6 +115,7 @@ function addData() {
     document.getElementById("nombre").value = "";
     document.getElementById("materia").value = "";
     document.getElementById("score").value = "";
+    document.getElementById("characters").value = "";
   }
 }
 
@@ -165,9 +174,4 @@ function updateData(index) {
       document.getElementById("Update").style.display = "none";
     }
   };
-}
-function limpiarHTML() {
-    while(calificacionesList.firstChild) {
-         calificacionesList.removeChild(calificacionesList.firstChild);
-    }
 }
