@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login| Simulador de Calificacoines</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <form>
+        <img src="images/login.png" alt="user-img">
+        <label for="username">Usuario</label>
+        <input type="text" id="username" placeholder="Usuario" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Contrasena" required>
+        <div class="box-visible">
+            <input type="checkbox" id="visible">
+            <label for="visible">Mostrar Contrasena</label>
+        </div>
+        <button type="submit" id="submit">Iniciar Sesion</button>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

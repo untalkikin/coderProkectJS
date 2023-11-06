@@ -1,5 +1,4 @@
 //Validaciones antes de enviar
-
 function validateForm() {
   let nombre = document.getElementById("nombre").value;
   let materia = document.getElementById("materia").value;
@@ -22,7 +21,7 @@ function validateForm() {
   }
   return true;
 }
-
+//Creacion de la funcion api que trae a los persnajes de rick y morty
 function maestro() {
   // URL de la API
   const url = "https://rickandmortyapi.com/api/character";
@@ -79,6 +78,17 @@ function showData() {
 }
 //Cargando los datos del localStorage
 document.onload = showData();
+
+//Agregamos funcion del sweet alert
+const btn = document.querySelector('#Submit');
+btn.addEventListener('click', () => {
+  Swal.fire({
+    title : 'Genial',
+    text : 'Se guardo la calificacion',
+    icon : 'success',
+    confirmButtonText: 'Cool',
+  })
+})
 
 //Agregar los datos al localStorage
 
